@@ -157,6 +157,8 @@ type ServeDeploymentStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 // +genclient
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
 // RayService is the Schema for the rayservices API
 type RayService struct {
 	metav1.TypeMeta   `json:",inline"`
@@ -167,6 +169,7 @@ type RayService struct {
 }
 
 //+kubebuilder:object:root=true
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // RayServiceList contains a list of RayService
 type RayServiceList struct {
