@@ -160,6 +160,8 @@ type RayJobStatus struct {
 // +kubebuilder:printcolumn:name="end time",type=string,JSONPath=".status.endTime",priority=0
 // +kubebuilder:printcolumn:name="age",type="date",JSONPath=".metadata.creationTimestamp",priority=0
 // +genclient
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
 // RayJob is the Schema for the rayjobs API
 type RayJob struct {
 	metav1.TypeMeta   `json:",inline"`
@@ -170,6 +172,7 @@ type RayJob struct {
 }
 
 //+kubebuilder:object:root=true
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // RayJobList contains a list of RayJob
 type RayJobList struct {
