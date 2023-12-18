@@ -257,6 +257,8 @@ const (
 // +kubebuilder:printcolumn:name="head pod IP",type="string",JSONPath=".status.head.podIP",priority=1
 // +kubebuilder:printcolumn:name="head service IP",type="string",JSONPath=".status.head.serviceIP",priority=1
 // +genclient
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
 type RayCluster struct {
 	// Standard object metadata.
 	metav1.TypeMeta   `json:",inline"`
@@ -268,6 +270,7 @@ type RayCluster struct {
 }
 
 //+kubebuilder:object:root=true
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // RayClusterList contains a list of RayCluster
 type RayClusterList struct {
